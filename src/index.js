@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import {hello} from './app/hello';
+import lottery from './app/lottery';
 import 'angular-ui-router';
 import routesConfig from './routes';
 
@@ -11,4 +11,4 @@ export const app = 'app';
 angular
   .module(app, ['ui.router'])
   .config(routesConfig)
-  .component('app', hello);
+  .component('app', lottery);
