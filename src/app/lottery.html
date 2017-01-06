@@ -7,3 +7,10 @@
 <ul>
   <li ng-repeat="trophy in $ctrl.trophies">{{trophy.name}}</li>
 </ul>
+
+<button type="button" name="button" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery">
+  <span ng-show="!$ctrl.inTheLottery">Start</span>
+  <span ng-show="$ctrl.inTheLottery">Stop</span>
+</button>
+
+<h2>{{ $ctrl.luckyDog.name }}</h2>
