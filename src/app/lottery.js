@@ -1,13 +1,10 @@
 import staffs from '../staff';
 import trophies from '../trophy';
-<<<<<<< HEAD
 import lang from '../lang';
-=======
->>>>>>> Add unofficial logic
 import unofficial from '../unofficial';
 
 // 抽奖间隔 ms
-const LOTTERY_INTERVAL = 10;
+const LOTTERY_INTERVAL = 200;
 // cookie keys
 const LUCKY_DOG = 'LUCKY_DOG';
 const TROPHY_ISSUED = 'TROPHY_ISSUED';
@@ -197,6 +194,18 @@ export default {
       for (let i in vm.luckyDogs) {
         let luckyDog = vm.luckyDogs[i];
         if (staffName === luckyDog.name) {
+          if (!isLuckeyDog(staffName)) {
+            vm.luckeyDog = staffName;
+            break;
+          }
+        }
+      }
+    }
+
+    function isLuckeyDog(staffName) {
+      for (let i in vm.luckeyDogs) {
+        let luckeyDog = vm.luckeyDogs[i];
+        if (staffName === luckeyDog.name) {
           return true;
         }
       }
@@ -212,7 +221,6 @@ export default {
           vm.luckyDog = staffs[random(0, staffs.length)];
         }, LOTTERY_INTERVAL);
       } else {
-        if (interval) {
           $interval.cancel(interval);
           // 是否覆盖幸运儿
           if (vm.cover) {
