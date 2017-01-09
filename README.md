@@ -21,7 +21,7 @@ function random(start, end) {
   return parseInt(num, 10);
 }
 
-let luckeyDog = staffs[random(0, staffs.length)];
+let luckyDog = staffs[random(0, staffs.length)];
 ```
 
 ## Developer

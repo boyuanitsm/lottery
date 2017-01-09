@@ -4,7 +4,7 @@ import trophies from '../trophy';
 // 抽奖间隔 ms
 const LOTTERY_INTERVAL = 10;
 // cookie keys
-const LUCKEY_DOG = 'LUCKEY_DOG';
+const LUCKY_DOG = 'LUCKY_DOG';
 const TROPHY_ISSUED = 'TROPHY_ISSUED';
 
 export default {
@@ -25,8 +25,8 @@ export default {
 
     function initialize() {
       // 从 cookie 中获取幸运儿
-      vm.luckeyDogs = $cookies.get(LUCKEY_DOG)
-        ? angular.fromJson($cookies.get(LUCKEY_DOG))
+      vm.luckyDogs = $cookies.get(LUCKY_DOG)
+        ? angular.fromJson($cookies.get(LUCKY_DOG))
         : [];
       // 从 cookie 中获取已颁发的奖品
       vm.trophyIssued = $cookies.get(TROPHY_ISSUED)
@@ -41,17 +41,17 @@ export default {
         }
       }
       readyTrophy();
-      removeLuckeyDogFromStaffs();
+      removeLuckyDogFromStaffs();
     }
 
     // 把幸运儿从员工数据中删除，防止二次中奖
-    function removeLuckeyDogFromStaffs() {
-      for (let i in vm.luckeyDogs) {
-        let luckeyDog = vm.luckeyDogs[i];
+    function removeLuckyDogFromStaffs() {
+      for (let i in vm.luckyDogs) {
+        let luckyDog = vm.luckyDogs[i];
 
         for (let j in vm.staffs) {
           let staff = vm.staffs[j];
-          if (luckeyDog.name === staff.name) {
+          if (luckyDog.name === staff.name) {
             vm.staffs.splice(j, 1);
             break;
           }
@@ -60,7 +60,7 @@ export default {
     }
 
     // 把这个幸运儿从员工数据中删除，防止二次中奖
-    function removeThisLuckeyDogFromStaffs(name) {
+    function removeThisLuckyDogFromStaffs(name) {
       for (let j in vm.staffs) {
         let staff = vm.staffs[j];
         if (name === staff.name) {
@@ -105,12 +105,12 @@ export default {
 
     // 添加一个幸运儿
     function addLuckyDog(name, trophy, trophyId) {
-      vm.luckeyDogs[vm.luckeyDogs.length] = {
+      vm.luckyDogs[vm.luckyDogs.length] = {
         name: name,
         trophy: trophy,
         trophyId: trophyId
       };
-      $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
+      $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
 
       if (!vm.trophyIssued[trophyId]) {
         vm.trophyIssued[trophyId] = 0;
@@ -124,8 +124,8 @@ export default {
 
     // 覆盖上一个幸运儿 (人不在，重新抽)
     function coverLastLuckyDog(name, trophy) {
-      vm.luckeyDogs[vm.luckeyDogs.length - 1].name = name;
-      $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
+      vm.luckyDogs[vm.luckyDogs.length - 1].name = name;
+      $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
       vm.cover = false;
     }
 
@@ -137,7 +137,7 @@ export default {
 
     // 重置所有数据
     function reset() {
-      $cookies.remove(LUCKEY_DOG);
+      $cookies.remove(LUCKY_DOG);
       $cookies.remove(TROPHY_ISSUED);
       $window.location.reload();
     };
@@ -157,7 +157,7 @@ export default {
           } else {
             addLuckyDog(vm.luckyDog.name, vm.trophy.name, vm.trophy.id);
           }
-          removeThisLuckeyDogFromStaffs(vm.luckyDog.name);
+          removeThisLuckyDogFromStaffs(vm.luckyDog.name);
         }
       }
       return newValue;

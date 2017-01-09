@@ -10,8 +10,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/',
       component: 'app'
     })
-    .state('luckey-dog', {
-      url: '/luckey-dog',
-      component: 'luckeyDog'
+    .state('lucky-dog', {
+      url: '/lucky-dog',
+      component: 'luckyDog'
     });
 }
