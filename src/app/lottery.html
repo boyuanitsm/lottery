@@ -1,8 +1,13 @@
 <div class="container">
   <h1 class="title">2017年软件研发中心暨抽奖活动</h1>
+  <h1 class="trophy-name" ng-if="$ctrl.trophy">{{$ctrl.trophy.id}} {{$ctrl.trophy.name}}</h1>
+  <h1 class="trophy-name" ng-if="!$ctrl.trophy">抽奖完毕</h1>
   <div class="lottery">
-    <span class="lucky-dog">
-      Staff
+    <span class="lucky-dog" ng-if="$ctrl.luckyDog.name">
+      {{ $ctrl.luckyDog.name }}
+    </span>
+    <span class="lucky-dog" ng-if="!$ctrl.luckyDog.name">
+      ？？？
     </span>
   </div>
   <!-- <div class="action-btn">
@@ -12,23 +17,23 @@
       查看获奖记录
     </span>
   </div>
+  <button type="button" name="button" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-disabled="!$ctrl.trophy && !$ctrl.cover">
+    <span ng-show="!$ctrl.inTheLottery">Start</span>
+    <span ng-show="$ctrl.inTheLottery">Stop</span>
+  </button>
+  <button type="button" name="button" ng-click="$ctrl.reset()">
+    Reset
+  </button>
+  <button type="button" name="button" ng-click="$ctrl.restart()" ng-disabled="!$ctrl.luckyDog || $ctrl.inTheLottery">
+    Restart
+  </button>
 </div>
-
 <!-- <h1>lottery</h1>
 <p>
   Ready trophy: {{$ctrl.trophy.id}} {{$ctrl.trophy.name}}
 </p>
 
-<button type="button" name="button" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-disabled="!$ctrl.trophy && !$ctrl.cover">
-  <span ng-show="!$ctrl.inTheLottery">Start</span>
-  <span ng-show="$ctrl.inTheLottery">Stop</span>
-</button>
-<button type="button" name="button" ng-click="$ctrl.reset()">
-  Reset
-</button>
-<button type="button" name="button" ng-click="$ctrl.restart()" ng-disabled="!$ctrl.luckyDog || $ctrl.inTheLottery">
-  Restart
-</button>
+
 
 <h2>{{ $ctrl.luckyDog.name }}</h2>
 

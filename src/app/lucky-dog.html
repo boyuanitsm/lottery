@@ -2,20 +2,10 @@
   <h1 class="title-lucky-dog">2017年软件研发中心暨抽奖记录</h1>
   <img class="lucky-dog-bg" src="/images/lucky-dog-bg.png" alt="">
   <table class="lucky-dogs-container">
-    <tr>
+    <tr ng-repeat="lucky in $ctrl.luckyDogs">
       <td>1月20日15点32分20秒</td>
-      <td>Staff</td>
-      <td>一等奖 iPhone7一台</td>
-    </tr>
-    <tr>
-      <td>1月20日15点32分20秒</td>
-      <td>Staff</td>
-      <td>一等奖 iPhone7一台</td>
-    </tr>
-    <tr>
-      <td>1月20日15点32分20秒</td>
-      <td>Staff</td>
-      <td>一等奖 iPhone7一台</td>
+      <td>{{lucky.name}}</td>
+      <td>{{lucky.trophyId}} {{lucky.trophy}}</td>
     </tr>
   </table>
 </div>
