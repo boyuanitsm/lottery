@@ -1,5 +1,7 @@
 # lottery
 
+`unofficial`
+
 抽奖小程序，不需要后台服务，所有中奖结果保存在LocalStorage中
 
 ## Screenshot
