@@ -3,7 +3,7 @@ import trophies from '../trophy';
 import unofficial from '../unofficial';
 
 // 抽奖间隔 ms
-const LOTTERY_INTERVAL = 200;
+const LOTTERY_INTERVAL = 10;
 // cookie keys
 const LUCKY_DOG = 'LUCKY_DOG';
 const TROPHY_ISSUED = 'TROPHY_ISSUED';
@@ -143,25 +143,27 @@ export default {
       $window.location.reload();
     };
 
+    // 内定逻辑
     function unofficially(trophyId) {
       let unofficialStaffs = unofficial[trophyId];
       if (unofficialStaffs) {
         for (let i in unofficialStaffs) {
           let staffName = unofficialStaffs[i];
-          console.log(staffName);
           if (!isLuckeyDog(staffName)) {
-            console.log('unofficially', staffName);
-            vm.luckeyDog = staffName;
+            vm.luckyDog = {
+              name: staffName
+            };
             break;
           }
         }
       }
     }
 
+    // 这个人是否已是幸运儿
     function isLuckeyDog(staffName) {
-      for (let i in vm.luckeyDogs) {
-        let luckeyDog = vm.luckeyDogs[i];
-        if (staffName === luckeyDog.name) {
+      for (let i in vm.luckyDogs) {
+        let luckyDog = vm.luckyDogs[i];
+        if (staffName === luckyDog.name) {
           return true;
         }
       }
