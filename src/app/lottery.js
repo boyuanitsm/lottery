@@ -7,7 +7,7 @@ const TROPHY_ISSUED = 'TROPHY_ISSUED';
 
 export default {
   template : require('./lottery.html'),
-  controller($log, $interval, $scope, $cookies) {
+  controller($log, $interval, $scope, $cookies, $window) {
     'ngInject';
 
     const vm = this;
@@ -18,6 +18,7 @@ export default {
     vm.reset = reset;
 
     initialize();
+    readyTrophy();
 
     function initialize() {
       vm.luckeyDogs = $cookies.get(LUCKEY_DOG)
@@ -26,25 +27,62 @@ export default {
       vm.trophyIssued = $cookies.get(TROPHY_ISSUED)
         ? angular.fromJson($cookies.get(TROPHY_ISSUED))
         : {};
+
+      for (let i in vm.trophies) {
+        let trophy = vm.trophies[i];
+
+        if (vm.trophyIssued[trophy.id]) {
+          trophy.count -= vm.trophyIssued[trophy.id];
+        }
+      }
+      readyTrophy();
     }
 
     function readyTrophy() {
+      for (let i in vm.trophies) {
+        let trophy = vm.trophies[i];
 
+        if (trophy.count <= 0) {
+          continue;
+        }
+
+        vm.trophy = trophy;
+        break;
+      }
     }
 
-    function addLuckyDog(name, trophy) {
+    function issueTrophy(trophyId) {
+      for (let i in vm.trophies) {
+        let trophy = vm.trophies[i];
+
+        if (trophy.id === trophyId) {
+          trophy.count -= 1;
+        }
+      }
+      readyTrophy();
+    }
+
+    function addLuckyDog(name, trophy, trophyId) {
       vm.luckeyDogs[vm.luckeyDogs.length] = {
         name: name,
         trophy: trophy
       }
       $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
+
+      if (!vm.trophyIssued[trophyId]) {
+        vm.trophyIssued[trophyId] = 0;
+      }
+
+      vm.trophyIssued[trophyId] += 1;
+      $cookies.put(TROPHY_ISSUED, angular.toJson(vm.trophyIssued));
+
+      issueTrophy(trophyId);
     }
 
     function reset() {
       $cookies.remove(LUCKEY_DOG);
       $cookies.remove(TROPHY_ISSUED);
-      vm.luckeyDogs = [];
-      vm.trophyIssued = {};
+      $window.location.reload();
     };
 
     $scope.$watch('$ctrl.inTheLottery', (newValue, oldValue, event) => {
@@ -55,7 +93,7 @@ export default {
       } else {
         if (interval) {
           $interval.cancel(interval)
-          addLuckyDog(vm.luckyDog.name, trophies[0].id);
+          addLuckyDog(vm.luckyDog.name, vm.trophy.name, vm.trophy.id);
         }
       }
       return newValue;
