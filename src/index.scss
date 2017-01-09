@@ -74,15 +74,23 @@ html {
 }
 
 .action-btn {
+  cursor: pointer;
   position: absolute;
-  top: 65%;
+  top: 52.5vh;
+  left: 60vw;
   color: #fff;
-  font-size: 24px;
+  background-color: #F60015;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.325);
+  font-size: 2.5vh;
   border-radius: 100%;
   border: #fff 2px solid;
-  padding: 25px 20px;
-  width: 50px;
-  height: 50px;
+  width: 10vmin;
+  height: 10vmin;
+
+  p {
+    margin-top: 3.2vh;
+    font-weight: bold;
+  }
 }
 
 .title-lucky-dog {
