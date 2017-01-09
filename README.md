@@ -1,6 +1,11 @@
 # lottery
 
 `unofficial`
+<<<<<<< HEAD
+=======
+
+年会抽奖程序
+>>>>>>> Add unofficial logic
 
 抽奖小程序，不需要后台服务，所有中奖结果保存在LocalStorage中
 

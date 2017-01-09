@@ -1,6 +1,9 @@
 import staffs from '../staff';
 import trophies from '../trophy';
+<<<<<<< HEAD
 import lang from '../lang';
+=======
+>>>>>>> Add unofficial logic
 import unofficial from '../unofficial';
 
 // 抽奖间隔 ms
