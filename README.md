@@ -26,6 +26,12 @@ function random(start, end) {
 let luckyDog = staffs[random(0, staffs.length)];
 ```
 
+## Unofficial
+
+`src/unofficial.json` 是内定数据, 指定了奖项的中奖人列表
+
+这些被内定的人不会抽中其他奖项
+
 ## Developer
 
 ### Requirement Node 6+ && NPM 3+
