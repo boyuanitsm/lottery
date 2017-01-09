@@ -11,6 +11,9 @@
 <button type="button" name="button" ng-click="$ctrl.reset()">
   Reset
 </button>
+<button type="button" name="button" ng-click="$ctrl.restart()" ng-disabled="!$ctrl.luckyDog || $ctrl.inTheLottery">
+  Restart
+</button>
 
 <h2>{{ $ctrl.luckyDog.name }}</h2>
 
