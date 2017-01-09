@@ -1,7 +1,9 @@
 <div class="container">
-  <h1 class="title">2017年软件研发中心暨抽奖活动</h1>
-  <h1 class="trophy-name" ng-if="$ctrl.trophy">{{$ctrl.trophy.id}} {{$ctrl.trophy.name}}</h1>
-  <h1 class="trophy-name" ng-if="!$ctrl.trophy">抽奖完毕</h1>
+  <p class="title">2017年软件研发中心暨抽奖活动</p>
+
+  <p class="trophy-name" ng-if="$ctrl.trophy">{{$ctrl.trophy.id}} {{$ctrl.trophy.name}}</p>
+  <p class="trophy-name" ng-if="!$ctrl.trophy">抽奖完毕</p>
+
   <div class="lottery">
     <span class="lucky-dog" ng-if="$ctrl.luckyDog.name">
       {{ $ctrl.luckyDog.name }}

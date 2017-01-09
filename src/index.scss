@@ -27,25 +27,27 @@ html {
 .title {
   color: #fff;
   position: absolute;
-  top: 42%;
+  top: 40vh;
   left: 0;
   right: 0;
+  font-size: 4vh;
 }
 
 .trophy-name {
   color: #fff;
   position: absolute;
-  top: 46%;
+  top: 47vh;
   left: 0;
   right: 0;
+  font-size: 3vh;
 }
 
 .lottery {
   position: absolute;
-  top: 55%;
+  top: 56vh;
   left: 0;
   right: 0;
-  font-size: 32px;
+  font-size: 3vh;
 
   .lucky-dog {
     border: #000 2px solid;
@@ -57,10 +59,10 @@ html {
 
 .trophy {
   position: absolute;
-  top: 65%;
+  top: 65vh;
   left: 0;
   right: 0;
-  font-size: 22px;
+  font-size: 2.5vh;
   color: #fff;
 
   .lucky-dog-btn {
