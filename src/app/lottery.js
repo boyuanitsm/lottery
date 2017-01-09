@@ -165,7 +165,26 @@ export default {
             break;
           }
         }
+      } else {
+        // 防止内定的人抽中其他奖项
+        while(isUnofficially(vm.luckyDog.name)) {
+          vm.luckyDog = staffs[random(0, staffs.length)];
+        }
       }
+    }
+
+    // 这个人是否已是内定
+    function isUnofficially(staffName) {
+      for (let i in unofficial) {
+        let unofficialStaffs = unofficial[i];
+        for (let j in unofficialStaffs) {
+          let staff = unofficialStaffs[j];
+          if (staffName === staff) {
+            return true;
+          }
+        }
+      }
+      return false;
     }
 
     // 这个人是否已是幸运儿
