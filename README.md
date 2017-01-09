@@ -1,5 +1,13 @@
 # lottery
 
+年会抽奖程序
+
+# Usage
+
+`src/trophy.json` 是奖品数据, `src/staff.json`是员工数据
+
+所有中奖结果保存在Cookie中
+
 ## Developer
 
 ### Requirement Node 6+ && NPM 3+
