@@ -4,7 +4,7 @@
   Ready trophy: {{$ctrl.trophy.name}}
 </p>
 
-<button type="button" name="button" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-disabled="!$ctrl.trophy">
+<button type="button" name="button" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-disabled="!$ctrl.trophy && !$ctrl.cover">
   <span ng-show="!$ctrl.inTheLottery">Start</span>
   <span ng-show="$ctrl.inTheLottery">Stop</span>
 </button>

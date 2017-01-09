@@ -98,6 +98,7 @@ export default {
     function coverLastLuckyDog(name, trophy) {
       vm.luckeyDogs[vm.luckeyDogs.length - 1].name = name;
       $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
+      vm.cover = false; 
     }
 
     // 人不在，重新抽
