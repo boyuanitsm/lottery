@@ -15,6 +15,15 @@ html {
   text-align: center;
 }
 
+.lucky-dog-bg {
+  position: absolute;
+  top: 10%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  height: 70%;
+}
+
 .title {
   color: #fff;
   position: absolute;
@@ -64,4 +73,22 @@ html {
   padding: 25px 20px;
   width: 50px;
   height: 50px;
+}
+
+.title-lucky-dog {
+  position: absolute;
+  top: 24%;
+  left: 10%;
+  right: 0;
+  color: red;
+  z-index: 1;
+  font-size: 1.7em;
+}
+
+.lucky-dogs-container {
+  position: absolute;
+  top: 32%;
+  left: 42%;
+  margin: auto;
+  font-size: 18px;
 }
