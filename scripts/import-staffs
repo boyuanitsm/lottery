@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+const filename = process.argv[2];
+if (!filename) {
+  console.warn('Usage: import-staffs <filename>\nMissing require params filename');
+  process.exit(1);
+}
+
+const fs = require('fs');
+
+fs.readFile(filename, 'utf8', (err, data) => {
+  if (err) throw err;
+  importData(data);
+});
+
+function importData(data) {
+  const lines = data.split('\n');
+  const staffs = [];
+  for (let i in lines) {
+    let staffName = lines[i];
+    if (staffName) {
+      staffs[staffs.length] = {
+        name: staffName
+      };
+    }
+  }
+
+  console.log(JSON.stringify(staffs, null, 2));
+}
