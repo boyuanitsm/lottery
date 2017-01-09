@@ -39,6 +39,7 @@ export default {
     }
 
     function readyTrophy() {
+      let readyTrophy;
       for (let i in vm.trophies) {
         let trophy = vm.trophies[i];
 
@@ -46,8 +47,14 @@ export default {
           continue;
         }
 
-        vm.trophy = trophy;
+        readyTrophy = trophy;
         break;
+      }
+
+      if (readyTrophy) {
+        vm.trophy = readyTrophy;
+      } else {
+        vm.trophy = null;
       }
     }
 
