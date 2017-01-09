@@ -41,6 +41,33 @@ export default {
         }
       }
       readyTrophy();
+      removeLuckeyDogFromStaffs();
+    }
+
+    // 把幸运儿从员工数据中删除，防止二次中奖
+    function removeLuckeyDogFromStaffs() {
+      for (let i in vm.luckeyDogs) {
+        let luckeyDog = vm.luckeyDogs[i];
+
+        for (let j in vm.staffs) {
+          let staff = vm.staffs[j];
+          if (luckeyDog.name === staff.name) {
+            vm.staffs.splice(j, 1);
+            break;
+          }
+        }
+      }
+    }
+
+    // 把这个幸运儿从员工数据中删除，防止二次中奖
+    function removeThisLuckeyDogFromStaffs(name) {
+      for (let j in vm.staffs) {
+        let staff = vm.staffs[j];
+        if (name === staff.name) {
+          vm.staffs.splice(j, 1);
+          break;
+        }
+      }
     }
 
     // 准备下一个奖品
@@ -130,6 +157,7 @@ export default {
           } else {
             addLuckyDog(vm.luckyDog.name, vm.trophy.name, vm.trophy.id);
           }
+          removeThisLuckeyDogFromStaffs(vm.luckyDog.name);
         }
       }
       return newValue;
