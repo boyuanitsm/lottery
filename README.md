@@ -1,5 +1,7 @@
 # lottery
 
+`unofficial`
+
 年会抽奖程序
 
 ## Usage
