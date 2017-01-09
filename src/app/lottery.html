@@ -5,9 +5,9 @@
   <span ng-show="$ctrl.inTheLottery">Stop</span>
 </button>
 
-<h2>{{ $ctrl.luckyDog.name }}</h2>
+<h2>{{ $ctrl.luckyDog.name }}</h2> {{$ctrl.luckeyDogs}}
 
-<!-- 
+<!--
 <ul>
   <li ng-repeat="staff in $ctrl.staffs">{{staff.name}}</li>
 </ul> -->
@@ -15,3 +15,7 @@
 <ul>
   <li ng-repeat="trophy in $ctrl.trophies">{{trophy.name}} 还剩 {{trophy.count}} 个</li>
 </ul>
+
+<button type="button" name="button" ng-click="$ctrl.reset()">
+  Reset
+</button>
