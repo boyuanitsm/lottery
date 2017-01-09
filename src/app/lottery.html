@@ -7,11 +7,11 @@
 
 <h2>{{ $ctrl.luckyDog.name }}</h2>
 
-
+<!-- 
 <ul>
   <li ng-repeat="staff in $ctrl.staffs">{{staff.name}}</li>
-</ul>
+</ul> -->
 
 <ul>
-  <li ng-repeat="trophy in $ctrl.trophies">{{trophy.name}}</li>
+  <li ng-repeat="trophy in $ctrl.trophies">{{trophy.name}} 还剩 {{trophy.count}} 个</li>
 </ul>
