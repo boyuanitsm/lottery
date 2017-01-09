@@ -1,26 +1,26 @@
 [{
-    "id": "lucky",
-    "name": "幸运奖",
+    "id": "幸运奖",
+    "name": "空气净化器一个",
     "count": 2
   },
   {
-    "id": "third",
-    "name": "三等奖",
+    "id": "三等奖",
+    "name": "机械键盘一个",
     "count": 1
   },
   {
-    "id": "second",
-    "name": "二等奖",
+    "id": "二等奖",
+    "name": "乐视电视一台",
     "count": 1
   },
   {
-    "id": "first",
-    "name": "一等奖",
+    "id": "一等奖",
+    "name": "5000 元现金",
     "count": 1
   },
   {
-    "id": "special",
-    "name": "特等奖",
+    "id": "特等奖",
+    "name": "MacBook Pro 13'电脑一台",
     "count": 1
   }
 ]
