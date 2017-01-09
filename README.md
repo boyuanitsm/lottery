@@ -2,13 +2,13 @@
 
 年会抽奖程序
 
-# Usage
+## Usage
 
 `src/trophy.json` 是奖品数据, `src/staff.json`是员工数据
 
 所有中奖结果保存在Cookie中
 
-# Random
+## Random
 
 抽奖算法使用 Math.random 随机 staff 下标，代码片段如下:
 
