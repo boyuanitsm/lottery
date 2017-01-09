@@ -195,11 +195,11 @@ export default {
       } else {
         if (interval) {
           $interval.cancel(interval);
-          unofficially(vm.trophy.id);
           // 是否覆盖幸运儿
           if (vm.cover) {
             coverLastLuckyDog(vm.luckyDog.name);
           } else {
+            unofficially(vm.trophy.id);
             addLuckyDog(vm.luckyDog.name, vm.trophy.name, vm.trophy.id);
           }
           removeThisLuckyDogFromStaffs(vm.luckyDog.name);
