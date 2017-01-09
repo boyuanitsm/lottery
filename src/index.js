@@ -5,6 +5,7 @@ import 'angular-ui-router';
 import 'angular-cookies';
 import routesConfig from './routes';
 import cookieConfig from './cookie.config';
+import luckeyDog from './app/luckey-dog';
 
 import './index.scss';
 
@@ -14,4 +15,5 @@ angular
   .module(app, ['ui.router', 'ngCookies'])
   .config(routesConfig)
   .config(cookieConfig)
-  .component('app', lottery);
+  .component('app', lottery)
+  .component('luckeyDog', luckeyDog);
