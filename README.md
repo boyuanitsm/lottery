@@ -8,6 +8,22 @@
 
 所有中奖结果保存在Cookie中
 
+# Random
+
+抽奖算法使用 Math.random 随机 staff 下标，代码片段如下:
+
+```
+import staffs from './src/staff.json'
+
+function random(start, end) {
+  const difference = end - start;
+  let num = Math.random() * difference + start;
+  return parseInt(num, 10);
+}
+
+let luckeyDog = staffs[random(0, staffs.length)];
+```
+
 ## Developer
 
 ### Requirement Node 6+ && NPM 3+
