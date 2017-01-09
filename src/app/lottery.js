@@ -80,7 +80,8 @@ export default {
     function addLuckyDog(name, trophy, trophyId) {
       vm.luckeyDogs[vm.luckeyDogs.length] = {
         name: name,
-        trophy: trophy
+        trophy: trophy,
+        trophyId: trophyId
       };
       $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
 
@@ -98,7 +99,7 @@ export default {
     function coverLastLuckyDog(name, trophy) {
       vm.luckeyDogs[vm.luckeyDogs.length - 1].name = name;
       $cookies.put(LUCKEY_DOG, angular.toJson(vm.luckeyDogs));
-      vm.cover = false; 
+      vm.cover = false;
     }
 
     // 人不在，重新抽
