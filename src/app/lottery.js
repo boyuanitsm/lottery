@@ -19,9 +19,9 @@ export default {
     vm.trophies = trophies;
     vm.reset = reset;
     vm.restart = restart;
+    vm.luckyDogs, vm.trophyIssued, vm.throphy, vm.theLastOneThrophy;
 
     initialize();
-    readyTrophy();
 
     function initialize() {
       // 从 cookie 中获取幸运儿
@@ -70,7 +70,7 @@ export default {
       }
     }
 
-    // 准备下一个奖品
+    // 准备奖池
     function readyTrophy() {
       let readyTrophy;
       for (let i in vm.trophies) {
@@ -81,6 +81,9 @@ export default {
         }
 
         readyTrophy = trophy;
+        if (i == (vm.trophies.length - 1)) {
+          vm.theLastOneThrophy = true;
+        }
         break;
       }
 
@@ -100,7 +103,6 @@ export default {
           trophy.count -= 1;
         }
       }
-      readyTrophy();
     }
 
     // 添加一个幸运儿
@@ -145,6 +147,8 @@ export default {
     // 监听是否开始抽奖
     $scope.$watch('$ctrl.inTheLottery', (newValue, oldValue, event) => {
       if (newValue) {
+        // 准备下一个奖品
+        readyTrophy();
         interval = $interval(() => {
           vm.luckyDog = staffs[random(0, staffs.length)];
         }, LOTTERY_INTERVAL);

@@ -10,7 +10,7 @@
 
   <p class="title">2017年软件研发中心暨抽奖活动</p>
 
-  <p class="trophy-name" ng-if="$ctrl.trophy">{{$ctrl.trophy.id}} {{$ctrl.trophy.name}}</p>
+  <p class="trophy-name" ng-if="$ctrl.trophy">正在抽取的是 {{$ctrl.trophy.id}} {{$ctrl.trophy.name}}<!--, 还剩 {{$ctrl.trophy.count}} 个 --></p>
   <p class="trophy-name" ng-if="!$ctrl.trophy">抽奖完毕</p>
 
   <div class="lottery">
@@ -21,7 +21,7 @@
       ？？？
     </span>
   </div>
-  <div class="action-btn" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-hide="!$ctrl.trophy && !$ctrl.cover">
+  <div class="action-btn" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-hide="(0 === $ctrl.trophy.count && $ctrl.theLastOneThrophy) && !$ctrl.cover">
     <p ng-show="!$ctrl.inTheLottery">开始</p>
     <p ng-show="$ctrl.inTheLottery">停止</p>
   </div>
