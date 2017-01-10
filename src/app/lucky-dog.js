@@ -1,3 +1,5 @@
+import lang from '../lang';
+
 // cookie keys
 const LUCKY_DOG = 'LUCKY_DOG';
 
@@ -8,6 +10,7 @@ export default {
 
     const vm = this;
 
+    vm.lang = lang;
     refresh();
 
     function refresh() {

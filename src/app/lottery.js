@@ -1,5 +1,6 @@
 import staffs from '../staff';
 import trophies from '../trophy';
+import lang from '../lang';
 
 // 抽奖间隔 ms
 const LOTTERY_INTERVAL = 10;
@@ -15,6 +16,7 @@ export default {
     const vm = this;
     let interval;
 
+    vm.lang = lang;
     vm.staffs = staffs;
     vm.trophies = trophies;
     vm.reset = reset;
