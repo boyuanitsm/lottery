@@ -115,7 +115,8 @@ export default {
       vm.luckyDogs[vm.luckyDogs.length] = {
         name: name,
         trophy: trophy,
-        trophyId: trophyId
+        trophyId: trophyId,
+        time: new Date()
       };
       $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
 
@@ -132,6 +133,7 @@ export default {
     // 覆盖上一个幸运儿 (人不在，重新抽)
     function coverLastLuckyDog(name, trophy) {
       vm.luckyDogs[vm.luckyDogs.length - 1].name = name;
+      vm.luckyDogs[vm.luckyDogs.length - 1].time = new Date();
       $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
       vm.cover = false;
     }

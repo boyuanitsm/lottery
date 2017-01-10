@@ -113,6 +113,11 @@ html {
   left: 42vw;
   margin: auto;
   font-size: 2vh;
+
+  th, td {
+    padding: 1vh 1vw;
+    text-align: left;
+  }
 }
 
 .option-btn-container {
