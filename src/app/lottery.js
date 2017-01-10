@@ -9,7 +9,7 @@ const TROPHY_ISSUED = 'TROPHY_ISSUED';
 
 export default {
   template : require('./lottery.html'),
-  controller($log, $interval, $scope, $cookies, $window, $state) {
+  controller($log, $interval, $scope, $window, $state, localStorageService) {
     'ngInject';
 
     const vm = this;
@@ -26,12 +26,12 @@ export default {
 
     function initialize() {
       // 从 cookie 中获取幸运儿
-      vm.luckyDogs = $cookies.get(LUCKY_DOG)
-        ? angular.fromJson($cookies.get(LUCKY_DOG))
+      vm.luckyDogs = localStorageService.get(LUCKY_DOG)
+        ? angular.fromJson(localStorageService.get(LUCKY_DOG))
         : [];
       // 从 cookie 中获取已颁发的奖品
-      vm.trophyIssued = $cookies.get(TROPHY_ISSUED)
-        ? angular.fromJson($cookies.get(TROPHY_ISSUED))
+      vm.trophyIssued = localStorageService.get(TROPHY_ISSUED)
+        ? angular.fromJson(localStorageService.get(TROPHY_ISSUED))
         : {};
 
       for (let i in vm.trophies) {
@@ -118,14 +118,14 @@ export default {
         trophyId: trophyId,
         time: new Date()
       };
-      $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
+      localStorageService.set(LUCKY_DOG, angular.toJson(vm.luckyDogs));
 
       if (!vm.trophyIssued[trophyId]) {
         vm.trophyIssued[trophyId] = 0;
       }
 
       vm.trophyIssued[trophyId] += 1;
-      $cookies.put(TROPHY_ISSUED, angular.toJson(vm.trophyIssued));
+      localStorageService.set(TROPHY_ISSUED, angular.toJson(vm.trophyIssued));
 
       issueTrophy(trophyId);
     }
@@ -134,7 +134,7 @@ export default {
     function coverLastLuckyDog(name, trophy) {
       vm.luckyDogs[vm.luckyDogs.length - 1].name = name;
       vm.luckyDogs[vm.luckyDogs.length - 1].time = new Date();
-      $cookies.put(LUCKY_DOG, angular.toJson(vm.luckyDogs));
+      localStorageService.set(LUCKY_DOG, angular.toJson(vm.luckyDogs));
       vm.cover = false;
     }
 
@@ -146,8 +146,8 @@ export default {
 
     // 重置所有数据
     function reset() {
-      $cookies.remove(LUCKY_DOG);
-      $cookies.remove(TROPHY_ISSUED);
+      localStorageService.remove(LUCKY_DOG);
+      localStorageService.remove(TROPHY_ISSUED);
       $window.location.reload();
     };
 
