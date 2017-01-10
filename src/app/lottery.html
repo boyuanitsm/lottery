@@ -1,16 +1,16 @@
 <div class="container">
   <p class="option-btn-container">
     <button type="button" name="button" ng-click="$ctrl.reset()">
-      Reset
+      重置
     </button>
     <button type="button" name="button" ng-click="$ctrl.restart()" ng-disabled="!$ctrl.luckyDog || $ctrl.inTheLottery">
-      Restart
+      重新抽
     </button>
   </p>
 
   <p class="title">2017年软件研发中心暨抽奖活动</p>
 
-  <p class="trophy-name" ng-if="$ctrl.trophy">正在抽取的是 {{$ctrl.trophy.id}} {{$ctrl.trophy.name}}<!--, 还剩 {{$ctrl.trophy.count}} 个 --></p>
+  <p class="trophy-name" ng-if="$ctrl.trophy">正在抽取的是 {{$ctrl.trophy.id}} {{$ctrl.trophy.name}}, 还剩 {{$ctrl.trophy.count}} 个</p>
   <p class="trophy-name" ng-if="!$ctrl.trophy">抽奖完毕</p>
 
   <div class="lottery">
