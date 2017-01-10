@@ -241,6 +241,7 @@ export default {
           vm.luckyDog = staffs[random(0, staffs.length)];
         }, LOTTERY_INTERVAL);
       } else {
+        if (interval) {
           $interval.cancel(interval);
           // 是否覆盖幸运儿
           if (vm.cover) {
