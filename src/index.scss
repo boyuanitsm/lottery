@@ -17,11 +17,11 @@ html {
 
 .lucky-dog-bg {
   position: absolute;
-  top: 10%;
+  top: 10vh;
   margin: auto;
   left: 0;
   right: 0;
-  height: 70%;
+  height: 70vh;
 }
 
 .title {
@@ -99,20 +99,20 @@ html {
 
 .title-lucky-dog {
   position: absolute;
-  top: 24%;
-  left: 10%;
+  top: 24vh;
+  left: 10vw;
   right: 0;
   color: red;
   z-index: 1;
-  font-size: 1.7em;
+  font-size: 3vh;
 }
 
 .lucky-dogs-container {
   position: absolute;
-  top: 32%;
-  left: 42%;
+  top: 32vh;
+  left: 42vw;
   margin: auto;
-  font-size: 18px;
+  font-size: 2vh;
 }
 
 .option-btn-container {
