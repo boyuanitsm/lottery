@@ -9,7 +9,7 @@ const TROPHY_ISSUED = 'TROPHY_ISSUED';
 
 export default {
   template : require('./lottery.html'),
-  controller($log, $interval, $scope, $cookies, $window) {
+  controller($log, $interval, $scope, $cookies, $window, $state) {
     'ngInject';
 
     const vm = this;
@@ -19,6 +19,7 @@ export default {
     vm.trophies = trophies;
     vm.reset = reset;
     vm.restart = restart;
+    vm.openLuckyDog = openLuckyDog;
     vm.luckyDogs, vm.trophyIssued, vm.throphy, vm.theLastOneThrophy;
 
     initialize();
@@ -103,6 +104,10 @@ export default {
           trophy.count -= 1;
         }
       }
+    }
+
+    function openLuckyDog() {
+      window.open($state.href('lucky-dog'), '_blank');
     }
 
     // 添加一个幸运儿

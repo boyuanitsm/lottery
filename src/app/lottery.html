@@ -21,35 +21,14 @@
       ？？？
     </span>
   </div>
-  <div class="action-btn" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery" ng-hide="(0 === $ctrl.trophy.count && $ctrl.theLastOneThrophy) && !$ctrl.cover">
+  <div class="action-btn" ng-click="$ctrl.inTheLottery = !$ctrl.inTheLottery"
+    ng-hide="(!$ctrl.trophy || (0 === $ctrl.trophy.count && $ctrl.theLastOneThrophy)) && !$ctrl.cover">
     <p ng-show="!$ctrl.inTheLottery">开始</p>
     <p ng-show="$ctrl.inTheLottery">停止</p>
   </div>
   <div class="trophy">
-    <span class="lucky-dog-btn" ui-sref="lucky-dog">
+    <span class="lucky-dog-btn" ng-click="$ctrl.openLuckyDog()">
       查看获奖记录
     </span>
   </div>
 </div>
-<!-- <h1>lottery</h1>
-<p>
-  Ready trophy: {{$ctrl.trophy.id}} {{$ctrl.trophy.name}}
-</p>
-
-
-
-<h2>{{ $ctrl.luckyDog.name }}</h2>
-
-<ul>
-  <li ng-repeat="trophy in $ctrl.trophies">{{trophy.id}} {{trophy.name}} 还剩 {{trophy.count}} 个</li>
-</ul>
-
-<h2>Lucky Dogs</h2>
-
-<ul>
-  <li ng-repeat="lucky in $ctrl.luckyDogs">{{lucky.name}} {{lucky.trophy}}</li>
-</ul>
-
-<p align="right">
-  <a href="/lucky-dog" target="_lucky_dogs">lucky dogs page</a>
-</p> -->
