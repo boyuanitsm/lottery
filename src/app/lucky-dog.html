@@ -1,13 +1,15 @@
 <div class="container">
   <h1 class="title-lucky-dog">2017年软件研发中心暨抽奖记录</h1>
   <img class="lucky-dog-bg" src="/images/lucky-dog-bg.png" alt="">
-  <table class="lucky-dogs-container">
-    <tr ng-repeat="lucky in $ctrl.luckyDogs | orderBy: '-time'">
-      <td>{{lucky.time | date: 'hh:mm:ss'}}</td>
-      <td>{{lucky.name}}</td>
-      <td>{{lucky.trophyId}} {{lucky.trophy}}</td>
-    </tr>
-  </table>
+  <div class="lucky-dogs-container">
+    <table>
+      <tr ng-repeat="lucky in $ctrl.luckyDogs | orderBy: '-time'">
+        <td>{{lucky.time | date: 'hh:mm:ss'}}</td>
+        <td>{{lucky.name}}</td>
+        <td>{{lucky.trophyId}} {{lucky.trophy}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <!-- <h2>Lucky Dogs</h2>
