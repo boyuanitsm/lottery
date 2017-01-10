@@ -1,5 +1,5 @@
-FROM mhart/alpine-node:6
-WORKDIR /opt/app
-ADD . /opt/app
-RUN npm install
-CMD ["npm","test"]
+FROM daocloud.io/nginx
+MAINTAINER hookszhang hua.zhang@boyuanitsm.com
+EXPOSE 80
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+COPY dist /usr/share/nginx/html
