@@ -1,12 +1,18 @@
 # lottery
 
-年会抽奖程序
+抽奖小程序，不需要后台服务，所有中奖结果保存在LocalStorage中
 
-## Usage
+## Screenshot
 
-`src/trophy.json` 是奖品数据, `src/staff.json`是员工数据
+![home](screenshot/home.png)
+![winning](screenshot/winning.png)
+![lucky-dog](screenshot/lucky-dog.png)
 
-所有中奖结果保存在Cookie中
+## Usage & Config
+
+- `src/trophy.json` 奖品
+- `src/staff.json` 员工
+- `src/lang.json` 语言，可以配置页面的大标题
 
 ## Random
 
