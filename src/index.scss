@@ -127,3 +127,33 @@ html {
   text-align: right;
   margin: 0;
 }
+
+.winning {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .325);
+
+  .layer {
+    width: 40vw;
+    padding-top: 10vh;
+  }
+
+  p {
+    padding-top: 1vh;
+    padding-right: 4vw;
+  }
+
+  .lucky-dog {
+    border: #000 2px solid;
+    border-radius: 50px;
+    padding: 5px 40px;
+    background-color: #ededed;
+    font-size: 4vh;
+  }
+
+  .winning-trophy {
+    padding-top: 0;
+    color: #fff;
+    font-size: 4vh;
+  }
+}

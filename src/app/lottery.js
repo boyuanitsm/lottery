@@ -20,7 +20,7 @@ export default {
     vm.reset = reset;
     vm.restart = restart;
     vm.openLuckyDog = openLuckyDog;
-    vm.luckyDogs, vm.trophyIssued, vm.throphy, vm.theLastOneThrophy;
+    vm.luckyDogs, vm.trophyIssued, vm.throphy, vm.theLastOneThrophy, vm.winning;
 
     initialize();
 
@@ -169,6 +169,7 @@ export default {
             addLuckyDog(vm.luckyDog.name, vm.trophy.name, vm.trophy.id);
           }
           removeThisLuckyDogFromStaffs(vm.luckyDog.name);
+          vm.winning = true;
         }
       }
       return newValue;
